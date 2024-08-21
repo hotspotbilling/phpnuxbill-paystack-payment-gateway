@@ -1,10 +1,10 @@
-{include file="sections/header.tpl"}
+{include file="user-ui/header.tpl"}
 
 <form class="form-horizontal" method="post" role="form" action="{$_url}paymentgateway/paystack">
     <div class="row">
         <div class="col-sm-12 col-md-12">
             <div class="panel panel-primary panel-hovered panel-stacked mb30">
-                <div class="panel-heading">Paystack Payment Gateway</div>
+                <div class="panel-heading">{Lang::T('Paystack Payment Gateway')}</div>
                 <div class="panel-body">
                     <div class="form-group">
                         <label class="col-md-2 control-label">Paystack Secret Key</label>
@@ -17,7 +17,7 @@
                     </div>
 
 					 <div class="form-group">
-                        <label class="col-md-2 control-label">Payment Channels</label>
+                        <label class="col-md-2 control-label">{Lang::T('Payment Channels')}</label>
                         <div class="col-md-6">
                             {foreach $channel as $payment_options}
                                 <label class="checkbox-inline"><input type="checkbox" {if strpos($_c['paystack_channel'], $payment_options['id']) !== false}checked="true"{/if} id="paystack_channel" name="paystack_channel[]" value="{$payment_options['id']}"> {$payment_options['name']}</label>
@@ -25,7 +25,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-md-2 control-label">Currency</label>
+                        <label class="col-md-2 control-label">{Lang::T('Currency')}</label>
                         <div class="col-md-6">
                             <select class="form-control" name="paystack_currency">
                                 {foreach $cur as $currency}
@@ -41,14 +41,14 @@
                     <div class="form-group">
                         <div class="col-lg-offset-2 col-lg-10">
                             <button class="btn btn-primary waves-effect waves-light"
-                                type="submit">{$_L['Save']}</button>
+                                type="submit">{$_L['Save Change']}</button>
                         </div>
                     </div>
                     <pre>/ip hotspot walled-garden
 add dst-host=paystack.com
 add dst-host=*.paystack.com</pre>
-                    <small class="form-text text-muted">Set Telegram Bot to get any error and
-                        notification</small>
+                    <small class="form-text text-muted">{Lang::T('Set Telegram Bot to get any error and
+                        notification')}</small>
                 </div>
             </div>
 
@@ -56,4 +56,4 @@ add dst-host=*.paystack.com</pre>
     </div>
 </form>
 
-{include file="sections/footer.tpl"}
+{include file="user-ui/footer.tpl"}
